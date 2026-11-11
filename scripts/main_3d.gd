@@ -396,6 +396,13 @@ func _build_3d_teacher() -> void:
 	teacher_front_sprite = Sprite3D.new()
 	if ResourceLoader.exists("res://nailong.png"):
 		teacher_front_sprite.texture = load("res://nailong.png")
+	else:
+		# 備援：尚未匯入(無 .godot 快取)時，直接讀取 PNG 原始檔
+		var nl_img := Image.load_from_file(ProjectSettings.globalize_path("res://nailong.png"))
+		if nl_img != null and not nl_img.is_empty():
+			teacher_front_sprite.texture = ImageTexture.create_from_image(nl_img)
+		else:
+			push_warning("找不到 nailong.png")
 	teacher_front_sprite.pixel_size = 0.0032
 	teacher_front_sprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 	teacher_front_sprite.position = Vector3(0, 0.78, 0)
