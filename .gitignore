@@ -1,0 +1,13 @@
+# Godot 4 暫存快取目錄 (切勿上傳)
+.godot/
+
+# 匯出的執行檔
+*.export/
+*.translation/
+
+# 專案執行中產生或暫存的訊號日誌
+external_signals.json
+
+# 作業系統暫存檔
+.DS_Store
+Thumbs.db
